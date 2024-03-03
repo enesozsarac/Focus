@@ -1,14 +1,23 @@
 let number = 0;
 
+const numberText = document.getElementById("number");
+
 function increase() {
   number++;
-  document.getElementById("number").textContent = number;
+  numberText.textContent = number;
+}
+
+function reset() {
+  number = 0;
+  numberText.textContent = number;
 }
 
 // Muzik Kontrolleri
 
 let audio = document.getElementById("music");
-let playBtn = document.getElementById("playBtn");
+const playBtn = document.getElementById("playBtn");
+const nextBtn = document.getElementById("nextBtn");
+const backBtn = document.getElementById("backBtn");
 let isPlaying = false;
 
 playBtn.addEventListener("click", function () {
@@ -20,4 +29,14 @@ playBtn.addEventListener("click", function () {
     playBtn.innerHTML = '<i class="fa-solid fa-play"></i>';
   }
   isPlaying = !isPlaying;
+});
+
+nextBtn.addEventListener("click", function () {
+  audio.src = `/mp3/rain.mp3`
+  audio.play();
+});
+
+backBtn.addEventListener("click", function () {
+  audio.src = `/mp3/empty.mp3`
+  audio.play();
 });
